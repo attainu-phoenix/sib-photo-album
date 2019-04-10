@@ -30,12 +30,12 @@
                 </nav>
             </div>
         </div>
-        <div class="collapse" id="collapseExample" style="position:absolute; z-index:1">
-            <div class="col-md-6 offset-md-11">
+        <div class="collapse" id="collapseExample">
+            <div class="col-md-3 offset-md-7">
                 <div class="card card-body">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                           All Computers wait at the same speed.
+                            All Computers wait at the same speed.
                         </li>
                         <hr>
                         <li class="nav-item">
@@ -80,12 +80,40 @@
                         <a class="nav-link" href="#">Create Album</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Share</a>
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter">Share</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="#">Album</a>
                     </li>
                 </ul>
+            </div>
+
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Share</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <p>Link</p>
+                            <a href="http://Google.com">http://Google.comsfgdsgds</a>
+                            <span type="button" class="badge badge-pill badge-secondary">Copy Link</span><br><hr>
+                            <p>Share To Public Anyone can view</p>
+                            <span type="button" class="badge badge-pill badge-secondary">Share Publicly</span><br><hr>
+                            <input type="text" name="email&username" id="" placeholder="Enter Email Or Username">
+
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-primary">Done</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-9">
                 <div class="tz-gallery">
