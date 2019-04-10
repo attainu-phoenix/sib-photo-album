@@ -1,0 +1,131 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+</head>
+<body>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+              </div>            
+
+              <div class="container-fluid">
+                  <div class = "row">
+                        <div class ="col-md-4">
+                                <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                          <a class="nav-link active" href="#myModal1" data-toggle="modal"> Create Album</a></li>
+                                
+                                         
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="#myModal2">Share Album</a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="#myModal3">Delete</a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="#myModal4">Explore</a>
+                                        </li>
+                                      </ul>
+                            
+                        </div>
+                        <div class = "row">
+                                <div class ="col-md-3">
+                                <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Card title</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          <a href="#" class="card-link">Card link</a>
+                                          <a href="#" class="card-link">Another link</a>
+                                        </div>
+                                      </div>
+
+                       
+                                    </div>
+                           </div> 
+                           <div class="row">
+                               <div class ="offset-md-6 col-md-12">
+
+                                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                                        <div class="card-header">Header</div>
+                                        <div class="card-body">
+                                          <h5 class="card-title">Success card title</h5>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
+                           </div>
+                         </div>  
+                  </div>   
+              </div>
+            <div class="modal fade" id="myModal1" role="dialog">
+            <div class="modal-dialog">
+                <div class ="modal-content">
+                    <div class ="modal-header">
+                        <button type = "button" class="close" data-dismiss="modal"></button>
+                        <h4 class="modal-title">Create Your Album </h4>
+                    </div>
+                <div class = "modal-body"><p>Enter title for your Album</p>
+                    <input type="text" class="form-control" id="title">
+                </div>
+                <div class="modal-footer">
+               <button type="button" class="btn btn-primary">Go to Album</button>
+               <button type="submit" class="btn btn-primary btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+               <button type="button" class="btn btn-primary">Create</button>
+                </div>
+            </div>
+        </div>
+       <div class="modal fade" id="myModal2" role="dialog">
+       <div class="modal-dialog">
+           </div></div>
+
+
+       <div class="modal fade" id="myModal3" role="dialog">
+        <div class="modal-dialog">
+                    <div class ="modal-content">
+                        <div class ="modal-header">
+                            <button type = "button" class="close" data-dismiss="modal"></button>
+                            <h4 class="modal-title">Delete this Album!! </h4>
+                        </div>
+                    <div class = "modal-body"><p>Enter title of the Album</p>
+                        <input type="text" class="form-control" id="title">
+                    </div>
+                    <div class="modal-footer">
+                   <button type="button" class="btn btn-primary">Delete Album</button>
+                   <button type="submit" class="btn btn-primary btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                   
+                    </div>
+                </div>
+            </div>
+                 </div>
+        <div class="modal fade" id="myModal" role="dialog">
+         <div class="modal-dialog">
+          </div> </div>    
+          <div class ="flex-column">
+
+                
+          
+                
+
+        
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>
