@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.css">
-    <link rel="stylesheet" href="../assets/css/explore/gallery-grid.css">
-    <link rel="stylesheet" href="../assets/css/explore/style.css">
+    <link rel="stylesheet" href="/css/explore/gallery-grid.css">
+    <link rel="stylesheet" href="/css/explore/style.css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <div class="row bg-light align-items-center">
             <div class="col-md-6">
                 <h2>SIB</h2>
-                    <!-- <a class="navbar-brand" href="#">SIB</a> -->
+                <!-- <a class="navbar-brand" href="#">SIB</a> -->
                 <!-- <img src="https://via.placeholder.com/100" alt="" srcset="" height="50px" width="80px"> -->
             </div>
             <div class="col-md-2 offset-md-4">
@@ -78,13 +78,13 @@
             <div class="col-md-2">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="./create_album.html">Create Album</a>
+                        <a class="nav-link active" href="/createAlbum">Create Album</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter">Share Album</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./explore.html">Explore</a>
+                        <a class="nav-link" href="/explore">Explore</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="#">Delete</a>
@@ -111,22 +111,23 @@
                             <p>Share To Public Anyone can view</p>
                             <span type="button" class="badge badge-pill badge-secondary">Share Publicly</span><br>
                             <hr>
+
                             <input type="text" name="email&username" id="" placeholder="Enter Email Or Username">
 
                         </div>
                         <div class="modal-footer">
 
-                            <button type="button" class="btn btn-primary">Done</button>
+                            {{!-- <button type="button" class="btn btn-primary">Done</button> --}}
+                            <a class="btn btn-primary" href="/shareAlbum" role="button">Share</a>
                         </div>
+
+
                     </div>
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="tz-gallery">
                     <div class="row">
-
-
-
                         <figure class="col-md-4">
                             <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg"
                                 data-size="1600x1067">
@@ -205,7 +206,7 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
                 crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js"></script>
-            <script src="../assets/js/explore.js"></script>
+            <script src="/js/explore.js"></script>
 </body>
 
 </html>
