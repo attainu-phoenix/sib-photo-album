@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.css">
-    <link rel="stylesheet" href="gallery-grid.css">
+    <link rel="stylesheet" href="../assets/css/explore/gallery-grid.css">
+    <link rel="stylesheet" href="../assets/css/explore/style.css">
 </head>
 
 <body>
@@ -17,17 +18,20 @@
     <div class="container-fluid">
         <div class="row bg-light align-items-center">
             <div class="col-md-6">
-                <img src="https://via.placeholder.com/100" alt="" srcset="" height="50px" width="80px">
+                <h2>SIB</h2>
+                    <!-- <a class="navbar-brand" href="#">SIB</a> -->
+                <!-- <img src="https://via.placeholder.com/100" alt="" srcset="" height="50px" width="80px"> -->
             </div>
-            <div class="col-md-4 offset-md-2">
-                <nav class="navbar navbar-dark justify-content-around">
-                    <button type="button" class="btn btn-light" data-toggle="collapse" data-target="#collapseExample"
-                        aria-expanded="false" aria-controls="collapseExample">
-                        Notifications<span class="badge badge-danger">4</span>
-                    </button>
-                    <span type="button" class="badge badge-info" data-toggle="collapse" data-target="#collapseExample2"
-                        aria-expanded="false" aria-controls="collapseExample">SY</span>
-                </nav>
+            <div class="col-md-2 offset-md-4">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-toggle="collapse" data-target="#collapseExample">Notifications<span
+                                class="badge badge-danger">4</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="round-circle" data-toggle="collapse" data-target="#collapseExample2">SY</div>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="collapse" id="collapseExample">
@@ -74,16 +78,16 @@
             <div class="col-md-2">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Explore</a>
+                        <a class="nav-link active" href="./create_album.html">Create Album</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Create Album</a>
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter">Share Album</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter">Share</a>
+                        <a class="nav-link" href="./explore.html">Explore</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#">Album</a>
+                        <a class="nav-link " href="#">Delete</a>
                     </li>
                 </ul>
             </div>
@@ -102,9 +106,11 @@
 
                             <p>Link</p>
                             <a href="http://Google.com">http://Google.com</a>
-                            <span type="button" class="badge badge-pill badge-secondary">Copy Link</span><br><hr>
+                            <span type="button" class="badge badge-pill badge-secondary">Copy Link</span><br>
+                            <hr>
                             <p>Share To Public Anyone can view</p>
-                            <span type="button" class="badge badge-pill badge-secondary">Share Publicly</span><br><hr>
+                            <span type="button" class="badge badge-pill badge-secondary">Share Publicly</span><br>
+                            <hr>
                             <input type="text" name="email&username" id="" placeholder="Enter Email Or Username">
 
                         </div>
@@ -199,7 +205,7 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
                 crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js"></script>
-            <script src="script.js"></script>
+            <script src="../assets/js/explore.js"></script>
 </body>
 
 </html>
