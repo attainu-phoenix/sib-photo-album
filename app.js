@@ -6,8 +6,9 @@ const assert = require('assert');
 var indexPage = require("./routes/index.js")
 var signup = require("./routes/signup.js")
 var createalbumpage = require("./routes/createalbumpage.js")
-var explorePage = require("./routes/explorepage.js")
+var homePage = require("./routes/homePage")
 var shareAlbum = require("./routes/sharealbumroute")
+var albumPhotos = require("./routes/albumPhotosRoute")
 
 // Initializing express app 
 var app = express();
@@ -39,10 +40,12 @@ app.get("/",indexPage.indexPage);
 
 app.post("/signup",signup.signup);
 
-app.get("/createAlbum",createalbumpage.createAlbum);
+app.get("/albums",createalbumpage.createAlbum);
 
-app.get("/explore",explorePage.explore);
+app.get("/home",homePage.homePage);
 
 app.get("/shareAlbum",shareAlbum.shareAlbum);
+
+app.get("/albumPhotos",albumPhotos.albumPhots);
 
 app.listen(3000);
