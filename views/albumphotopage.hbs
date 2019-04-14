@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PhotoGallery</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/css/commons/gallery-grid.css">
+    <link rel="stylesheet" href="/css/commons/profile-icon.css">
+</head>
+
+<body>
+    <!--Start of NavBar  -->
+    <nav class="navbar  bg-light align-items-center">
+        <div class="col-md-6">
+            <h2>SIB</h2>
+
+        </div>
+        <div class="col-md-2 offset-md-4">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" data-toggle="collapse" data-target="#collapseExample">Notifications<span
+                            class="badge badge-danger">4</span></a>
+                </li>
+                <li class="nav-item">
+                    <div class="round-circle" data-toggle="collapse" data-target="#collapseExample2">SY</div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--End of NavBar  -->
+    <!-- Notification Block By default not visible  will be only when user click on notification link on navbar-->
+    <div class="collapse" id="collapseExample">
+        <div class="col-md-3 offset-md-7">
+            <div class="card card-body">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        All Computers wait at the same speed.
+                    </li>
+                    <hr>
+                    <li class="nav-item">
+                        A good programmer looks both ways before crosssing a one-way street.
+                    </li>
+                    <hr>
+                    <li class="nav-item">
+                        First Solve the problem then write the code.
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+<<<<<<< HEAD:views/explore.hbs
+        <div class="collapse" id="collapseExample">
+            <div class="col-md-3 offset-md-7">
+                <div class="card card-body">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            All Computers wait at the same speed.
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            A good programmer looks both ways before crosssing a one-way street.
+                        </li>
+                        <hr>
+                           <li class="nav-item">
+                            First Solve the problem then write the code.
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+=======
+>>>>>>> 5ed6bf00279e710282c4d1501c81c72f9c4a8877:views/albumphotopage.hbs
+
+    </div>
+    <!-- End Notification Block -->
+
+    <!-- Start Profile Block by default not visible will be visible only when click on profile link-->
+    <div class="collapse" id="collapseExample2">
+        <div class="col-md-3 offset-md-9">
+            <div class="card card-body">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profile</a>
+                    </li>
+                    <li class="nav-item">
+<<<<<<< HEAD:views/explore.hbs
+                        <a class="nav-link" href="/explore">Explore</a>
+                    </li>
+                       <li class="nav-item">
+                        <a class="nav-link " href="#">Delete</a>
+=======
+                        <a class="nav-link active" href="#">Sign Out</a>
+>>>>>>> 5ed6bf00279e710282c4d1501c81c72f9c4a8877:views/albumphotopage.hbs
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!--End Start Profile Block-->
+
+    <!--Start Share Block Modal  -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Share</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <p>Link</p>
+                    <a href="http://Google.com">http://Google.com</a>
+                    <span type="button" class="badge badge-pill badge-secondary">Copy Link</span><br>
+                    <hr>
+                    <p>Share To Public Anyone can view</p>
+                    <span type="button" class="badge badge-pill badge-secondary">Share Publicly</span><br>
+                    <hr>
+
+                    <input type="text" name="email&username" id="" placeholder="Enter Email Or Username">
+
+                </div>
+                <div class="modal-footer">
+
+                    {{!-- <button type="button" class="btn btn-primary">Done</button> --}}
+                    <a class="btn btn-primary" href="/shareAlbum" role="button">Share</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!--End Share Block Modal -->
+    <div class="container-fluid" style="margin-top:5%">
+
+
+
+        <div class="row">
+            <!--Start Side Navigation -->
+            <div class="col-md-2">
+                <ul class="nav flex-column ">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/home">Home</a>
+                    </li>
+                    {{!-- <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter">Share Album</a>
+                    </li> --}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/albums">Albums</a>
+                    </li>
+                    {{!-- <li class="nav-item">
+                        <a class="nav-link " href="#">Delete</a>
+                    </li> --}}
+                </ul>
+            </div>
+            <!-- End of Side Navigation -->
+
+            <!--Start of Images Thumnails -->
+            <div class="col-md-9">
+                <div class="tz-gallery">
+                    <div class="row">
+                        <figure class="col-md-4">
+                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg"
+                                data-size="1600x1067">
+                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg"
+                                    class="img-fluid">
+                            </a>
+                        </figure>
+                        <figure class="col-md-4">
+                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg"
+                                data-size="1600x1067">
+                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg"
+                                    class="img-fluid" />
+                            </a>
+                        </figure>
+                        <figure class="col-md-4">
+                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(131).jpg"
+                                data-size="1600x1067">
+                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(131).jpg"
+                                    class="img-fluid" />
+                            </a>
+                        </figure>
+                        <figure class="col-md-4">
+                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(123).jpg"
+                                data-size="1600x1067">
+                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(123).jpg"
+                                    class="img-fluid" />
+                            </a>
+                        </figure>
+                        <figure class="col-md-4">
+                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(118).jpg"
+                                data-size="1600x1067">
+                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(118).jpg"
+                                    class="img-fluid" />
+                            </a>
+                        </figure>
+
+                        <figure class="col-md-4">
+                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(128).jpg"
+                                data-size="1600x1067">
+                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(128).jpg"
+                                    class="img-fluid" />
+                            </a>
+                        </figure>
+
+                        <figure class="col-md-4">
+                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(132).jpg"
+                                data-size="1600x1067">
+                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(132).jpg"
+                                    class="img-fluid" />
+                            </a>
+                        </figure>
+                        <figure class="col-md-4">
+                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(133).jpg"
+                                data-size="1600x1067">
+                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(133).jpg"
+                                    class="img-fluid" />
+                            </a>
+                        </figure>
+                        <figure class="col-md-4">
+                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(115).jpg"
+                                data-size="1600x1067">
+                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(115).jpg"
+                                    class="img-fluid" />
+                            </a>
+                        </figure>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <!--End of Images Thumnails -->
+        </div>
+
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js"></script>
+    <script src="/js/baguetteBoxScript.js"></script>
+</body>
+
+</html>
