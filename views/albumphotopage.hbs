@@ -53,28 +53,6 @@
                 </ul>
             </div>
         </div>
-<<<<<<< HEAD:views/explore.hbs
-        <div class="collapse" id="collapseExample">
-            <div class="col-md-3 offset-md-7">
-                <div class="card card-body">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            All Computers wait at the same speed.
-                        </li>
-                        <hr>
-                        <li class="nav-item">
-                            A good programmer looks both ways before crosssing a one-way street.
-                        </li>
-                        <hr>
-                           <li class="nav-item">
-                            First Solve the problem then write the code.
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-=======
->>>>>>> 5ed6bf00279e710282c4d1501c81c72f9c4a8877:views/albumphotopage.hbs
 
     </div>
     <!-- End Notification Block -->
@@ -91,14 +69,7 @@
                         <a class="nav-link" href="#">Profile</a>
                     </li>
                     <li class="nav-item">
-<<<<<<< HEAD:views/explore.hbs
-                        <a class="nav-link" href="/explore">Explore</a>
-                    </li>
-                       <li class="nav-item">
-                        <a class="nav-link " href="#">Delete</a>
-=======
                         <a class="nav-link active" href="#">Sign Out</a>
->>>>>>> 5ed6bf00279e710282c4d1501c81c72f9c4a8877:views/albumphotopage.hbs
                     </li>
 
                 </ul>
@@ -143,9 +114,48 @@
         </div>
     </div>
     <!--End Share Block Modal -->
+
+    <!-- Start of Upload Photos Modal-->
+    <div class="modal fade" id="uploadPhotosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Upload Photos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="photosUploadForm" action="/uploadPhtotos" enctype="multipart/form-data" method="POST">
+
+
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" multiple="multiple" id="photoBrowse"
+                                    name="photos" aria-describedby="inputGroupFileAddon04">
+                                <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                            </div>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="uploadButton">Upload</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                {{!-- <div class="modal-footer">
+
+
+                    <a class="btn btn-primary" href="/uploadPhotos" role="button">Upload</a>
+                </div> --}}
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- End of Upload Photos Modal-->
     <div class="container-fluid" style="margin-top:5%">
-
-
 
         <div class="row">
             <!--Start Side Navigation -->
@@ -160,9 +170,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/albums">Albums</a>
                     </li>
-                    {{!-- <li class="nav-item">
-                        <a class="nav-link " href="#">Delete</a>
-                    </li> --}}
+                    <li class="nav-item">
+                        <a class="nav-link " id="uploadPhotos" href="/uploadPhotos" data-toggle="modal" data-target="#uploadPhotosModal">Upload
+                            Photos</a>
+                    </li>
                 </ul>
             </div>
             <!-- End of Side Navigation -->
@@ -249,7 +260,7 @@
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
@@ -257,6 +268,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js"></script>
     <script src="/js/baguetteBoxScript.js"></script>
+    
 </body>
 
 </html>
