@@ -8,6 +8,7 @@ var createalbumpage = require("./routes/createalbumpage.js")
 var explorePage = require("./routes/explorepage.js")
 var shareAlbum = require("./routes/sharealbumroute")
 
+
 var app = express();
 app.use(bodyParser.urlencoded({extended:false}));
 app.set("view engine","hbs");
@@ -20,6 +21,8 @@ app.get("/",indexPage.indexPage);
 app.post("/signup",signup.signup);
 
 app.get("/createAlbum",createalbumpage.createAlbum);
+
+
 
 app.get("/explore",explorePage.explore);
 
