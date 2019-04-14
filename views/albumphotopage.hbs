@@ -127,7 +127,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="photosUploadForm" action="/uploadPhtotos" enctype="multipart/form-data" method="POST">
+                    <form id="photosUploadForm" action="/uploadPhotos" enctype="multipart/form-data" method="POST">
 
 
                         <div class="input-group">
@@ -137,7 +137,7 @@
                                 <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
                             </div>
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" id="uploadButton">Upload</button>
+                                <button class="btn btn-outline-secondary" type="submit" id="uploadButton">Upload</button>
                             </div>
                         </div>
                     </form>
@@ -268,6 +268,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js"></script>
     <script src="/js/baguetteBoxScript.js"></script>
+    {{!-- <script src="js/albumphotopage/uploadImage.js"></script> --}}
     
 </body>
 
