@@ -53,4 +53,6 @@ app.get("/albumPhotos",albumPhotos.albumPhots);
 
 app.post("/uploadPhotos",uploadPhotos.uploadPhotos);
 
+app.post("/createAlbum",albumPhotos.createAlbum);
+
 app.listen(3000);

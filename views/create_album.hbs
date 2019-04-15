@@ -164,18 +164,36 @@
           <button type="button" class="close" data-dismiss="modal"></button>
           <h4 class="modal-title">Create Your Album </h4>
         </div>
-        <div class="modal-body">
-          <p>Enter title for your Album</p>
-          <input type="text" class="form-control" id="title">
-        </div>
-        <div class="modal-footer">
-        
-          <button type="submit" class="btn btn-primary btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>
-            Cancel</button>
-          <button type="button" class="btn btn-primary">Create</button>
-        </div>
+        <form action="/createAlbum" method="POST">
+          <div class="modal-body">
+            <p>Enter Name for your Album</p>
+            <input type="text" class="form-control" id="title">
+            <p></p>
+            <p>Select Share Options</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                checked>
+              <label class="form-check-label" for="exampleRadios1">
+                Private
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+              <label class="form-check-label" for="exampleRadios2">
+                Public
+              </label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-primary btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>
+              Cancel</button>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
       </div>
     </div>
+  </div>
   </div>
 
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -220,13 +238,13 @@
         </div>
         <div class="modal-body">
           <p>Are you sure to want to delete it?</p>
-        
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary">Yes</button>
           <button type="submit" class="btn btn-primary btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>
-           Cancel</button>
-          
+            Cancel</button>
+
         </div>
       </div>
     </div>
