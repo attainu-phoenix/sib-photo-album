@@ -1,7 +1,6 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 var mongoDb = require('mongodb');
-var multer = require('multer');
 var indexPage = require("./routes/index.js")
 var signup = require("./routes/signup.js")
 var createalbumpage = require("./routes/createalbumpage.js")
@@ -21,7 +20,7 @@ app.set("view engine","hbs");
 //Using public folder as static folder
 app.use(express.static('public'));
 
-var upload = multer({ dest: 'uploads/' })
+
 //Connecting to DB
 var DB;
 var mongoClient = new mongoDb.MongoClient("mongodb://localhost:27017/sib",{useNewUrlParser:true})

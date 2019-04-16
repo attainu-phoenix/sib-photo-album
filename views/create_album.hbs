@@ -13,21 +13,23 @@
 </head>
 
 <body>
- {{#if message}} 
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-  <strong>Holy guacamole!</strong>You have created Album.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-{{/if}} 
-{{!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <strong>Holy guacamole!</strong>Try again!
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-{{/if}} --}}
+  {{#if message}}
+  {{#if message}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Congratulation !</strong>You have created Album.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {{else}}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Sorry Could Not Create Album !</strong>Try again.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {{/if}}
+  {{/if}}
   <div class="container-fluid">
     <div class="row bg-light align-items-center">
       <div class="col-md-6">
