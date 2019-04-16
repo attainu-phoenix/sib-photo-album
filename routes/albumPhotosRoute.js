@@ -55,5 +55,24 @@ var createAlbum = function(request,response){
     
 }
 
+var getAlbums = function(request,response){
+    console.log("i am getting albums to show on card");
+    DB= request.app.locals.DB;
+    DB.collection("albums").find({}).toArray(function(error,result){
+        if(error){
+            console.log(error);
+            response.send("error");
+            
+        } else {
+            var albums={
+                listOfAlbums:result
+            }
+        }
+         
+        console.log(albums);
+        response.render("create_album.hbs",albums);
+    })
+}
+exports.getAlbums = getAlbums;
 exports.albumPhots = albumPhots;
 exports.createAlbum = createAlbum;

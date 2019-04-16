@@ -106,19 +106,22 @@
 
         </ul>
       </div>
-
-      <div class="col-md-3">
+      <div class="col-md-9">
+        {{#each listOfAlbums}}
+        <div class="row">
+          <div class="col-md-3">
 
         <div class="card" style="width: 16rem;">
           <img src=" https://via.placeholder.com/150">
           <div class="card-body">
-            <h5 class="card-title">Album title</h5>
+            
+            <h5 class="card-title">{{albumName}}</h5>
             <p class="card-text">Relive your beautiful momemts!</p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Add Photos</li>
             <li class="list-group-item">Total Photos</li>
-            <li class="list-group-item">Created on: Date</li>
+            <li class="list-group-item">{{dateCreated}}</li>
           </ul>
           <div class="card-body">
             <a href="/albumPhotos" class="card-link">Open Album</a>
@@ -126,47 +129,17 @@
           </div>
         </div>
 
-      </div>
+      </div> 
 
-      <div class="col-md-3">
-        <div class="card" style="width: 16rem;">
-          <img src=" https://via.placeholder.com/150">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Relive your beautiful momemts!</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Add Photos</li>
-            <li class="list-group-item">Total Photos</li>
-            <li class="list-group-item">Created on: Date</li>
-          </ul>
-          <div class="card-body">
-            <a href="/albumPhotos" class="card-link">Open Album</a>
-            <a href="#" data-target="#deletemodal" data-toggle="modal" class="card-link">Delete Album</a>
-          </div>
         </div>
-      </div>
-
-      <div class="col-md-3">
-
-        <div class="card" style="width: 16rem;">
-          <img src=" https://via.placeholder.com/150">
-          <div class="card-body">
-            <h5 class="card-title">Album title</h5>
-            <p class="card-text">Relive your beautiful momemts!</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Add Photos</li>
-            <li class="list-group-item">Total Photos</li>
-            <li class="list-group-item">Created on: Date</li>
-          </ul>
-          <div class="card-body">
-            <a href="/albumPhotos" class="card-link">Open Album</a>
-            <a href="#" data-target="#deletemodal" data-toggle="modal" class="card-link">Delete Album</a>
-          </div>
-        </div>
+      
+      {{/each}}
 
       </div>
+        
+      
+
+      
     </div>
   </div>
 
