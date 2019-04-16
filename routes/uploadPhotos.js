@@ -1,6 +1,8 @@
 'use strict'
 var multer = require('multer');
+var mongodb = require('mongodb')
 const crypto = require('crypto')
+var DB;
 
 
 var storage = multer.diskStorage({
@@ -22,11 +24,14 @@ var upload = multer({ storage: storage }).array('photos', 3);
  * 
  * @param {request} request 
  * @param {response} response 
+ * 
  */
 var uploadPhotos = function (request, response) {
     console.log("/uploadPhotos route executed ...")
-
     upload(request, response, function (error) {
+        var albumId = request.body.albumId;
+
+        DB = request.app.locals.DB;
 
         if (error instanceof multer.MulterError) {
 
@@ -39,14 +44,43 @@ var uploadPhotos = function (request, response) {
         }
         var uploadedPhotosPath = []
         for (var i = 0; i < request.files.length; i++) {
-            uploadedPhotosPath.push(request.files[i].path)
+
+            uploadedPhotosPath.push("/img/uploads/" + request.files[i].filename)
         }
-        var data = {
-            message: "Success",
-            uploadedPhotosPath: uploadedPhotosPath
-        }
-        console.log(data);
-        response.json(data);
+
+        var oldPhotoUploadedPath = []
+        DB.collection("albums").find({ _id: mongodb.ObjectID(albumId) }).toArray(function (error, result) {
+
+            // Getting Old images array from database
+
+            for (var i = 0; i < result[0].images.length; i++) {
+                oldPhotoUploadedPath.push({path:result[0].images[i].path});
+            }
+
+            //Adding new images path  in old images path array form database
+            var photo = {}
+            for (var i = 0; i < uploadedPhotosPath.length; i++) {
+                oldPhotoUploadedPath.push({path:uploadedPhotosPath[i]});
+            }
+            DB.collection("albums").updateOne(
+                { _id: mongodb.ObjectID(albumId) },
+                { $set: { images: oldPhotoUploadedPath } },
+                function (error, result) {
+                    if (error) {
+                        console.log(error)
+                        return;
+                    }
+                    console.log("Photos Uploded Successfully Into Album.");
+                })
+            var data = {
+                message: "Success",
+                uploadedPhotosPath: oldPhotoUploadedPath
+            }
+
+            response.json(data);
+        });
+
+
     });
 }
 

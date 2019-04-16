@@ -1,9 +1,30 @@
 'use strict';
+var mongodb = require('mongodb');
 
 
 var DB;
 var albumPhots = function (request, response) {
-    response.render("albumphotopage.hbs");
+   
+    var albumId ;
+    if(request.query.id != null){
+        albumId = request.query.id;
+    }
+  
+    DB = request.app.locals.DB;
+    console.log(albumId);
+    DB.collection("albums").find({ _id: mongodb.ObjectID(albumId) }).toArray(function(error,result){
+        if(error){
+            console.log("Error  :"+error);
+            return;
+        }
+        var data={
+            id:albumId,
+            photosList:result[0].images
+        }
+        
+        response.render("albumphotopage.hbs",data);
+    })
+    
 }
 
 var createAlbum = function (request, response) {
@@ -53,7 +74,7 @@ var createAlbum = function (request, response) {
 }
 
 var getAlbums = function (request, response) {
-    console.log("i am getting albums to show on card");
+    // console.log("i am getting albums to show on card");
     DB = request.app.locals.DB;
     var albums = {};
     if (request.query.success) {
@@ -69,7 +90,7 @@ var getAlbums = function (request, response) {
 
         }
 
-        console.log(albums);
+        // console.log(albums);
         response.render("create_album.hbs", albums);
     })
 }

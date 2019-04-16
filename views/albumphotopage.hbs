@@ -129,7 +129,7 @@
                 <div class="modal-body">
                     <form id="photosUploadForm" action="/uploadPhotos" enctype="multipart/form-data" method="POST">
 
-
+                        <input type="hidden" name="albumId"  value="{{id}}">
                         <div class="input-group">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" multiple="multiple" id="photoBrowse"
@@ -168,7 +168,7 @@
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter">Share Album</a>
                     </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="/albums">Albums</a>
+                        <a class="nav-link" href="/getAlbum">Albums</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " id="uploadPhotos" href="#" data-toggle="modal" data-target="#uploadPhotosModal">Upload
@@ -182,14 +182,17 @@
             <div class="col-md-9">
                 <div class="tz-gallery">
                     <div class="row">
+                       {{#each photosList}}
                         <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg"
+                            <a class="lightbox" href="localhost:3000{{path}}"
                                 data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg"
+                                <img alt="picture" src="{{path}}"
                                     class="img-fluid">
                             </a>
                         </figure>
-                        <figure class="col-md-4">
+                        {{/each}}
+
+                        {{!-- <figure class="col-md-4">
                             <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg"
                                 data-size="1600x1067">
                                 <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg"
@@ -246,7 +249,7 @@
                                 <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(115).jpg"
                                     class="img-fluid" />
                             </a>
-                        </figure>
+                        </figure> --}}
 
 
 
