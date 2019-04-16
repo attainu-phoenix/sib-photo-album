@@ -8,13 +8,14 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
-
+  <link rel="stylesheet" href="/css/commons/gallery-grid.css">
   <link rel="stylesheet" href="/css/createalbum/style.css">
+
 </head>
 
 <body>
-  {{#if message}}
-  {{#if message}}
+  {{#if albumAdded}}
+  {{#if albumAdded}}
   <div class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Congratulation !</strong>You have created Album.
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -108,67 +109,48 @@
 
         </ul>
       </div>
+      <div class="col-md-9">
 
-      <div class="col-md-3">
+        <div class="tz-gallery">
+          <div class="row justify-content-start">
+            {{#if listOfAlbums}}
+            {{#each listOfAlbums}}
+            <div class="col-md-4">
+              <p></p>
+              <div class="card" style="width:16rem;">
+                <img src=" https://via.placeholder.com/150">
+                <div class="card-body">
 
-        <div class="card" style="width: 16rem;">
-          <img src=" https://via.placeholder.com/150">
-          <div class="card-body">
-            <h5 class="card-title">Album title</h5>
-            <p class="card-text">Relive your beautiful momemts!</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Add Photos</li>
-            <li class="list-group-item">Total Photos</li>
-            <li class="list-group-item">Created on: Date</li>
-          </ul>
-          <div class="card-body">
-            <a href="/albumPhotos" class="card-link">Open Album</a>
-            <a href="#" data-target="#deletemodal" data-toggle="modal" class="card-link">Delete Album</a>
-          </div>
-        </div>
+                  <h5 class="card-title">{{albumName}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Total Photos {{_id}}</li>
+                  <li class="list-group-item">{{dateCreated}}</li>
+                </ul>
+                <div class="card-body">
+                  <a href="/albumPhotos?id={{_id}}" class="card-link">Open Album</a>
+                  <a href="#" data-target="#deletemodal" data-toggle="modal" class="card-link">Delete Album</a>
+                </div>
+              </div>
 
-      </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <div class="alert alert-info" role="alert">
+              You dont't have any albums now you can create one on clicking create album.
+            </div>
+            {{/if}}
 
-      <div class="col-md-3">
-        <div class="card" style="width: 16rem;">
-          <img src=" https://via.placeholder.com/150">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Relive your beautiful momemts!</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Add Photos</li>
-            <li class="list-group-item">Total Photos</li>
-            <li class="list-group-item">Created on: Date</li>
-          </ul>
-          <div class="card-body">
-            <a href="/albumPhotos" class="card-link">Open Album</a>
-            <a href="#" data-target="#deletemodal" data-toggle="modal" class="card-link">Delete Album</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-
-        <div class="card" style="width: 16rem;">
-          <img src=" https://via.placeholder.com/150">
-          <div class="card-body">
-            <h5 class="card-title">Album title</h5>
-            <p class="card-text">Relive your beautiful momemts!</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Add Photos</li>
-            <li class="list-group-item">Total Photos</li>
-            <li class="list-group-item">Created on: Date</li>
-          </ul>
-          <div class="card-body">
-            <a href="/albumPhotos" class="card-link">Open Album</a>
-            <a href="#" data-target="#deletemodal" data-toggle="modal" class="card-link">Delete Album</a>
           </div>
         </div>
 
+
+
       </div>
+
+
+
+
     </div>
   </div>
 

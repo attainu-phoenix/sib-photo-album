@@ -38,20 +38,41 @@ var createAlbum = function (request, response) {
     };
 
     DB.collection("albums").insertOne(album, function (error, result) {
-        var alert = {
-            message: false
-        }
+        var albums = {};
+
         if (error) {
             console.log("error occured while inserting data into the instructors collection");
-            response.render("create_album.hbs", alert);
+            albums.albumAdded = false;
+            response.render("create_album.hbs", albums);
         } else {
-            alert.message = true;
-            response.render("create_album.hbs", alert);
+            response.redirect("/getAlbum?success=true");
         }
 
     });
 
 }
 
+var getAlbums = function (request, response) {
+    console.log("i am getting albums to show on card");
+    DB = request.app.locals.DB;
+    var albums = {};
+    if (request.query.success) {
+        albums.albumAdded = true;
+    }
+    DB.collection("albums").find({}).toArray(function (error, result) {
+        if (error) {
+            console.log(error);
+            // response.send("error");
+            albums.albumAdded = false;
+        } else {
+            albums.listOfAlbums = result
+
+        }
+
+        console.log(albums);
+        response.render("create_album.hbs", albums);
+    })
+}
+exports.getAlbums = getAlbums;
 exports.albumPhots = albumPhots;
 exports.createAlbum = createAlbum;

@@ -1,4 +1,6 @@
+'use strict'
 var multer = require('multer');
+const crypto = require('crypto')
 
 
 var storage = multer.diskStorage({
@@ -6,7 +8,11 @@ var storage = multer.diskStorage({
         cb(null, 'public/img/uploads')
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now() + '_' + file.originalname)
+        // randomBytes function will generate a random name
+        let customFileName = crypto.randomBytes(18).toString('hex')
+        // get file extension from original file name
+        let fileExtension = file.originalname.split('.')[1]
+        cb(null, customFileName + '.' + fileExtension)
     }
 });
 
@@ -21,7 +27,7 @@ var uploadPhotos = function (request, response) {
     console.log("/uploadPhotos route executed ...")
 
     upload(request, response, function (error) {
-       
+
         if (error instanceof multer.MulterError) {
 
             response.json({ message: "Error" });
@@ -39,6 +45,7 @@ var uploadPhotos = function (request, response) {
             message: "Success",
             uploadedPhotosPath: uploadedPhotosPath
         }
+        console.log(data);
         response.json(data);
     });
 }

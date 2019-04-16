@@ -50,8 +50,11 @@ app.get("/shareAlbum",shareAlbum.shareAlbum);
 
 app.get("/albumPhotos",albumPhotos.albumPhots);
 
+app.get("/getAlbum",albumPhotos.getAlbums);
+
 app.post("/uploadPhotos",uploadPhotos.uploadPhotos);
 
 app.post("/createAlbum",albumPhotos.createAlbum);
+
 
 app.listen(3000);

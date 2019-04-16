@@ -13,8 +13,8 @@ $(document).ready(function (e) {
             contentType: false,
             processData: false,
             success: function (data) {
-                console.log(data);
-                window.location.replace("/albumPhotos?success=true");
+               //window.location.replace("/albumPhotos?success=true");
+               console.log(data);
             },
             error: function (data) {
                 console.log(data);

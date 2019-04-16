@@ -1,7 +1,6 @@
 'use strict'
 var createAlbum = function(request,response){
-    // var DB = request.app.locals.DB;
-    //Get all your 
+    console.log("/album route executed ...")
     response.render("create_album.hbs")
 }
 
