@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>PHOTO ALBUM</title>
 </head>
 
@@ -22,10 +22,12 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mr-2">
-                        <button id="signup" class="btn btn-outline-info " data-toggle="modal" data-target="#signUP">SIGNUP</button>
+                        
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#signUP">SIGN UP</a>
                     </li>
                     <li class="nav-item">
-                        <button id="login" class="btn btn-outline-info " data-toggle="modal" data-target="#Login">LOGIN</button>
+                        
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#Login">LOGIN</a>
                     </li>
                 </ul>
             </div>
@@ -40,29 +42,29 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="first-slide" src="https://via.placeholder.com/1980x500.jpg" alt="First slide">
+                    <img class="first-slide" src="img/slider/slide1.jpg" alt="First slide">
                     <div class="container">
-                        <div class="carousel-caption text-left">
-                            <h1>SOME TEXT.</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, quisquam itaque adipisci fugit dignissimos dicta rem id a expedita repellendus.</p>
+                        <div class="carousel-caption text-left text-danger">
+                            <h1>CREATE ALBUM.</h1>
+                            <p>You can create your personalized album.</p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="second-slide" src="https://via.placeholder.com/1980x500.jpg" alt="Second slide">
+                    <img class="second-slide" src="img/slider/slide2.jpg" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>Some Text.</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas corrupti, magni, quos quo dolorem dolore odit temporibus minus earum numquam!</p>
+                            <h1>UPLOAD PHOTOS.</h1>
+                            <p>Upload as many photo you want to.</p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="third-slide" src="https://via.placeholder.com/1980x500.jpg" alt="Third slide">
+                    <img class="third-slide" src="img/slider/slide3.jpg" alt="Third slide">
                     <div class="container">
-                        <div class="carousel-caption text-right">
-                            <h1>Some TExt.</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic delectus maxime perferendis aliquam quaerat ratione amet, ad voluptatem facilis sequi?.</p>
+                        <div class="carousel-caption text-right text-info">
+                            <h1>SHARE ALBUM.</h1>
+                            <p>Share the album you created with your friends and family.</p>
                         </div>
                     </div>
                 </div>
@@ -83,26 +85,26 @@
             <!-- Three columns of text below the carousel -->
             <div class="row">
                 <div class="col-lg-4">
-                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                    <h2>FEATURE 1</h2>
-                    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                    <img class="rounded-circle" src="img/create.jpg" alt="Generic placeholder image" width="140" height="140">
+                    <h2>CREATE ALBUM</h2>
+                    <p>You can create your personalized album.</p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
-                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                    <h2>FEATURE 2</h2>
-                    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                    <img class="rounded-circle" src="img/upload.png" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Upload Photos</h2>
+                    <p>Upload as many photo you want to..</p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
-                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                    <h2>FEATURE 3</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                    <img class="rounded-circle" src="img/share.jpg" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Share Album</h2>
+                    <p>Share the album you created with your friends and family.</p>
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
         </div><!-- /.container -->
         <div class="container-fluid" style="background: blue;">
             <div class="row">
                 <div class="col-md-3">
-                    <img style="margin-left: -14px;" width="320px" height="246px" src="assets/img/demo.png" alt="">
+                    <img style="margin-left: -14px;" width="320px" height="246px" src="img/demo.png" alt="">
                 </div>
                 <div class="col-md-6">
                     <h1 style="font-family: 'Karla', cursive;color: white;margin-top: 70px"> Share your memories with friends and family !</h1>
@@ -147,19 +149,19 @@
                                     <form action="/signup" method="POST">
                                         <div class="form-group">
                                             <label for="exampleInputText">Full Name</label>
-                                            <input type="text" class="form-control" id="" aria-describedby="textHelp" placeholder="Enter Name">
+                                            <input type="text" class="form-control" name="name" id="" aria-describedby="textHelp" placeholder="Enter Name">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                            <input type="password" name="password" class="form-control" id="pass1" placeholder="Password">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Confirm Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                            <input type="password" name="cpassword" class="form-control" id="pass2" placeholder="Password">
                                         </div>
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
