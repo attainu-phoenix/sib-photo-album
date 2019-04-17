@@ -22,6 +22,7 @@
         </div>
         <div class="col-md-2 offset-md-4">
             <ul class="nav">
+
                 <li class="nav-item">
                     <a class="nav-link active" href="#" data-toggle="collapse" data-target="#collapseExample">Notifications<span
                             class="badge badge-danger">4</span></a>
@@ -62,6 +63,7 @@
         <div class="col-md-3 offset-md-9">
             <div class="card card-body">
                 <ul class="nav flex-column">
+                       
                     <li class="nav-item">
                         <a class="nav-link" href="#">Settings</a>
                     </li>
@@ -69,7 +71,7 @@
                         <a class="nav-link" href="#">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Sign Out</a>
+                        <a class="nav-link active" href="/logout">Sign Out</a>
                     </li>
 
                 </ul>
@@ -122,6 +124,9 @@
             <!--Start Side Navigation -->
             <div class="col-md-2">
                 <ul class="nav flex-column ">
+                     <li class="nav-item">
+                        <p>Welcome {{user.name}}</p>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="/home">Home</a>
                     </li>

@@ -3,22 +3,31 @@ var bodyParser = require('body-parser')
 var mongoDb = require('mongodb');
 var indexPage = require("./routes/index.js")
 var signup = require("./routes/signup.js")
+var login = require("./routes/login.js")
+var logout = require("./routes/logout.js")
 var createalbumpage = require("./routes/createalbumpage.js")
 var homePage = require("./routes/homePage")
 var shareAlbum = require("./routes/sharealbumroute")
 var albumPhotos = require("./routes/albumPhotosRoute")
 var uploadPhotos = require("./routes/uploadPhotos.js");
 const assert = require("assert");
+var session = require("express-session");
+var flash = require('connect-flash');
 // Initializing express app 
 var app = express();
 //Using body parser
 app.use(bodyParser.urlencoded({extended:false}));
 
 app.use(bodyParser.json());
+
+//USING SESSION
+app.use(session({secret: "catkey"}));
 //Setting templating engine
 app.set("view engine","hbs");
 //Using public folder as static folder
 app.use(express.static('public'));
+//USING FLASH
+app.use(flash());
 
 
 //Connecting to DB
@@ -41,6 +50,10 @@ mongoClient.connect(function(error){
 app.get("/",indexPage.indexPage);
 
 app.post("/signup",signup.signup);
+
+app.post("/login",login.login);
+
+app.get("/logout",logout.logout);
 
 app.get("/albums",createalbumpage.createAlbum);
 

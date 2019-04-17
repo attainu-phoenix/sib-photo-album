@@ -18,7 +18,9 @@
   "homepage": "https://github.com/attainu-phoenix/sib-photo-album#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
     "express": "^4.16.4",
+    "express-session": "^1.16.1",
     "hbs": "^4.0.3",
     "mongodb": "^3.2.3",
     "multer": "^1.4.1"

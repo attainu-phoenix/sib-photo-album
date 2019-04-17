@@ -5,6 +5,11 @@ var mongodb = require('mongodb');
 var DB;
 var albumPhots = function (request, response) {
    
+
+   if(!request.session.user){
+        response.send("UNAUTHORIZED");
+    }
+  
     var albumId ;
     if(request.query.id != null){
         albumId = request.query.id;
@@ -29,7 +34,10 @@ var albumPhots = function (request, response) {
 
 var createAlbum = function (request, response) {
 
-
+  
+   if(!request.session.user){
+        response.send("UNAUTHORIZED");
+    }
     console.log("/createAlbum route executed..")
 
     DB = request.app.locals.DB;
@@ -75,6 +83,10 @@ var createAlbum = function (request, response) {
 
 var getAlbums = function (request, response) {
     // console.log("i am getting albums to show on card");
+    
+   if(!request.session.user){
+        response.send("UNAUTHORIZED");
+    }
     DB = request.app.locals.DB;
     var albums = {};
     if (request.query.success) {

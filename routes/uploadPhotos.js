@@ -26,9 +26,13 @@ var upload = multer({ storage: storage }).array('photos', 3);
  * @param {response} response 
  * 
  */
-var uploadPhotos = function (request, response) {
+var uploadPhotos = function(request, response) {
+
+    if (!request.session.user) {
+        response.send("UNAUTHORIZED");
+    }
     console.log("/uploadPhotos route executed ...")
-    upload(request, response, function (error) {
+    upload(request, response, function(error) {
         var albumId = request.body.albumId;
 
         DB = request.app.locals.DB;
@@ -49,23 +53,21 @@ var uploadPhotos = function (request, response) {
         }
 
         var oldPhotoUploadedPath = []
-        DB.collection("albums").find({ _id: mongodb.ObjectID(albumId) }).toArray(function (error, result) {
+        DB.collection("albums").find({ _id: mongodb.ObjectID(albumId) }).toArray(function(error, result) {
 
             // Getting Old images array from database
 
             for (var i = 0; i < result[0].images.length; i++) {
-                oldPhotoUploadedPath.push({path:result[0].images[i].path});
+                oldPhotoUploadedPath.push({ path: result[0].images[i].path });
             }
 
             //Adding new images path  in old images path array form database
             var photo = {}
             for (var i = 0; i < uploadedPhotosPath.length; i++) {
-                oldPhotoUploadedPath.push({path:uploadedPhotosPath[i]});
+                oldPhotoUploadedPath.push({ path: uploadedPhotosPath[i] });
             }
-            DB.collection("albums").updateOne(
-                { _id: mongodb.ObjectID(albumId) },
-                { $set: { images: oldPhotoUploadedPath } },
-                function (error, result) {
+            DB.collection("albums").updateOne({ _id: mongodb.ObjectID(albumId) }, { $set: { images: oldPhotoUploadedPath } },
+                function(error, result) {
                     if (error) {
                         console.log(error)
                         return;
