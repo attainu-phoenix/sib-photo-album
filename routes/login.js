@@ -1,7 +1,7 @@
 'use strict'
 var mongodb = require('mongodb');
 var DB;
-var message;
+
 
 var login = function(request, response) {
 
@@ -11,11 +11,12 @@ var login = function(request, response) {
         password: request.body.password
     };
     DB.collection("users").findOne(userDetails,function(error,user){
+            var data = {};                                                            
     	if(error){
     		message ="Error Occured While Signup";
     	}
         else if(!user){
-                    response.send("Invalid Username or Password")
+                    response.redirect("/login?isLogin=false");
                   }
     	else{
     		//request.flash('signupMessage', "Sucess");
@@ -29,4 +30,19 @@ var login = function(request, response) {
   
 }
 
+var onLoginSuccess = function(request,response){
+        console.log("on login success execu");
+    var data = {};
+    if(!request.query.isLogin){
+        data.isLogin = false;
+        
+    }
+    else{
+        data.isLogin = true;
+    }
+    response.render("index.hbs",data);
+}
+
+
 exports.login = login;
+exports.onLoginSuccess = onLoginSuccess;
