@@ -10,9 +10,8 @@ var homePage = require("./routes/homePage")
 var shareAlbum = require("./routes/sharealbumroute")
 var albumPhotos = require("./routes/albumPhotosRoute")
 var uploadPhotos = require("./routes/uploadPhotos.js");
-const assert = require("assert");
 var session = require("express-session");
-var flash = require('connect-flash');
+
 // Initializing express app 
 var app = express();
 //Using body parser
@@ -26,16 +25,14 @@ app.use(session({secret: "catkey"}));
 app.set("view engine","hbs");
 //Using public folder as static folder
 app.use(express.static('public'));
-//USING FLASH
-app.use(flash());
+
 
 
 //Connecting to DB
 var DB;
 var mongoClient = new mongoDb.MongoClient("mongodb://localhost:27017/sib",{useNewUrlParser:true})
 mongoClient.connect(function(error){
-    assert.equal(null,error)
-    if(error){
+      if(error){
         console.log("Error Connecting To The DB");
         return;
     }else{
