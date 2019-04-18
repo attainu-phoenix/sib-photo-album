@@ -1,7 +1,7 @@
 'use strict'
 var mongodb = require('mongodb');
 var DB;
-var message;
+
 
 var signup = function(request, response) {
 
@@ -11,14 +11,19 @@ var signup = function(request, response) {
         email: request.body.email,
         password: request.body.password
     };
+
     DB.collection("users").insertOne(userDetails,function(error){
     	if(error){
-    		message ="Error Occured While Signup";
+    		    response.redirect("/signup?sucess=false");
     	}
     	else{
     		//request.flash('signupMessage', "Sucess");
-    		response.send("SUCCESS SIGNUP");
+    		//response.send("SUCCESS SIGNUP");
+    		    response.redirect("/signup?sucess=true");
+    		
+
     	}
+    	
     });
 
     
@@ -26,4 +31,24 @@ var signup = function(request, response) {
   
 }
 
+var onSignUpSuccess = function(request,response){
+	console.log("on success execu");
+	var data = {};
+	if(request.query.sucess == "true"){
+		console.log("In If cond on onSignUpSuccess");
+		data.message = true;
+
+		
+	}
+	else{
+			console.log("In Else cond on onSignUpSuccess");
+		data.messageFailed = true;
+	}
+
+	console.log(request.query.sucess);
+	response.render("index.hbs",data);
+
+}
+
 exports.signup = signup;
+exports.onSignUpSuccess = onSignUpSuccess;

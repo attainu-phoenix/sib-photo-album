@@ -34,7 +34,7 @@ app.use(flash());
 var DB;
 var mongoClient = new mongoDb.MongoClient("mongodb://localhost:27017/sib",{useNewUrlParser:true})
 mongoClient.connect(function(error){
-    assert.equal(null,error)
+    //assert.equal(null,error)
     if(error){
         console.log("Error Connecting To The DB");
         return;
@@ -51,7 +51,11 @@ app.get("/",indexPage.indexPage);
 
 app.post("/signup",signup.signup);
 
+app.get("/signup",signup.onSignUpSuccess);
+
 app.post("/login",login.login);
+
+app.get("/login",login.onLoginSuccess);
 
 app.get("/logout",logout.logout);
 
