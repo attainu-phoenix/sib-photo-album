@@ -7,8 +7,8 @@ var signup = function(request, response) {
 
     DB = request.app.locals.DB;
     var userDetails = {
-        name: request.body.name,
-        email: request.body.email,
+        fullName: request.body.name,
+        emailAddress: request.body.email,
         password: request.body.password
     };
 

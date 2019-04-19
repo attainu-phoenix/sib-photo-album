@@ -87,29 +87,35 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Share</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">CHANGE PASSWORD</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
 
-                    <p>Link</p>
-                    <a href="http://Google.com">http://Google.com</a>
-                    <span type="button" class="badge badge-pill badge-secondary">Copy Link</span><br>
-                    <hr>
-                    <p>Share To Public Anyone can view</p>
-                    <span type="button" class="badge badge-pill badge-secondary">Share Publicly</span><br>
-                    <hr>
-
-                    <input type="text" name="email&username" id="" placeholder="Enter Email Or Username">
+                    <form action="/changePassword" method="POST">
+                    	<div class="form-group">
+                                 
+                                 <input type="hidden" class="form-control" name="userid" id="userid" value="{{user.emailAddress}}">
+                           </div>
+                    	  <div class="form-group">
+                                 <label for="exampleInputEmail1">Old Password</label>
+                                 <input type="password" class="form-control" name="old_pass" id="exampleInputEmail1" placeholder="Old Password">
+                           </div>
+                           <div class="form-group">
+                                  <label for="exampleInputPassword1">New Password</label>
+                                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                  <label for="exampleInputPassword1">Confirm Password</label>
+                                  <input type="password" name="cpassword" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
 
                 </div>
-                <div class="modal-footer">
-
-                    {{!-- <button type="button" class="btn btn-primary">Done</button> --}}
-                    <a class="btn btn-primary" href="/shareAlbum" role="button">Share</a>
-                </div>
+               
 
 
             </div>
@@ -143,83 +149,33 @@
             </div>
             <!-- End of Side Navigation -->
 
-            <!--Start of Images Thumnails -->
-            <div class="col-md-9">
-                <div class="tz-gallery">
-                    <div class="row">
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg"
-                                    class="img-fluid">
-                            </a>
-                        </figure>
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(131).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(131).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(123).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(123).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(118).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(118).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
-
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(128).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(128).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
-
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(132).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(132).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(133).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(133).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(115).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(115).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
+           
+    
+        
+        <div class="col-md-9 offset-1">
+					<div class="pull-left">
+        
+        <h2>User Information</h2>
+        
+                                        
+      <hr><br>	
+      <label style="font-weight:bold;">Full Name   :- </label>
+      <span>{{user.fullName}}</span><br>
+      <label style="font-weight:bold;">Email ID  :- </label>
+      <span> {{user.emailAddress}}</span>
+             </div>
+             <br><hr>
+             <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary">CHANGE PASSWORD</button>
 
 
-
-                    </div>
-                </div>
-            </div>
-             <!--End of Images Thumnails -->
+				</div>
+				
         </div>
+
+        
+
+      
+
 
 
 
@@ -236,3 +192,4 @@
 </body>
 
 </html>
+		

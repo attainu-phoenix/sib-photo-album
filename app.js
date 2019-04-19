@@ -10,6 +10,7 @@ var homePage = require("./routes/homePage")
 var shareAlbum = require("./routes/sharealbumroute")
 var albumPhotos = require("./routes/albumPhotosRoute")
 var uploadPhotos = require("./routes/uploadPhotos.js");
+var profile = require("./routes/profile.js");
 
 var session = require("express-session");
 
@@ -55,6 +56,10 @@ app.get("/signup",signup.onSignUpSuccess);
 app.post("/login",login.login);
 
 app.get("/login",login.onLoginSuccess);
+
+app.get("/profile",profile.viewprofile);
+
+app.post("/changePassword",profile.changePassword);
 
 app.get("/logout",logout.logout);
 
