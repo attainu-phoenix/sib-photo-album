@@ -44,7 +44,7 @@ $(document).ready(function (e) {
     })
 
     $("#uploadButton").on("click", function () {
-        $("#progerss").show();
         $("#photosUploadForm").submit();
+        $("#progerss").show();
     });
 });

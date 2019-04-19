@@ -34,7 +34,7 @@
 
 .tz-gallery .lightbox img {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     transition: 0.2s ease-in-out;
     box-shadow: 0 2px 3px rgba(0,0,0,0.2);
 }
@@ -51,6 +51,9 @@
 
 .baguetteBox-button {
     background-color: transparent !important;
+}
+.align-checkbox input{
+    margin-left: 1px;
 }
 
 

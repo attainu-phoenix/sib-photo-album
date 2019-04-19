@@ -10,6 +10,7 @@ var homePage = require("./routes/homePage")
 var shareAlbum = require("./routes/sharealbumroute")
 var albumPhotos = require("./routes/albumPhotosRoute")
 var uploadPhotos = require("./routes/uploadPhotos.js");
+var deletePhotos = require("./routes/deletePhotos");
 
 var session = require("express-session");
 
@@ -71,6 +72,8 @@ app.get("/getAlbum",albumPhotos.getAlbums);
 app.post("/uploadPhotos",uploadPhotos.uploadPhotos);
 
 app.post("/createAlbum",albumPhotos.createAlbum);
+
+app.post("/deletePhotos",deletePhotos.deletePhotos);
 
 
 app.listen(3000);
