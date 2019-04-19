@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PhotoGallery</title>
+    <title>Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.css">
@@ -14,14 +14,34 @@
 </head>
 
 <body>
+	 {{#if isUpdatePass}}
+                {{#if isUpdatePass}}
+                 
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>You have sucessfully changed your password !</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                {{else}}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Sorry Could Not Change Password !</strong>Try again.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+                 {{/if}}
+                
+                {{/if}}
     <!--Start of NavBar  -->
     <nav class="navbar  bg-light align-items-center">
         <div class="col-md-6">
             <h2>SIB</h2>
-
+            
         </div>
         <div class="col-md-2 offset-md-4">
             <ul class="nav">
+
                 <li class="nav-item">
                     <a class="nav-link active" href="#" data-toggle="collapse" data-target="#collapseExample">Notifications<span
                             class="badge badge-danger">4</span></a>
@@ -32,10 +52,6 @@
             </ul>
         </div>
     </nav>
-    <div class="progress" id="progerss" style="display: none;">
-        <div class="progress-bar" id="progressbar" role="progressbar" style="width: 0%;" aria-valuenow="0"
-            aria-valuemin="0" aria-valuemax="0"></div>
-    </div>
     <!--End of NavBar  -->
     <!-- Notification Block By default not visible  will be only when user click on notification link on navbar-->
     <div class="collapse" id="collapseExample">
@@ -66,7 +82,8 @@
         <div class="col-md-3 offset-md-9">
             <div class="card card-body">
                 <ul class="nav flex-column">
-                    
+                       
+                  
                     <li class="nav-item">
                         <a class="nav-link" href="/profile">Profile</a>
                     </li>
@@ -87,88 +104,52 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Share</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">CHANGE PASSWORD</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
 
-                    <p>Link</p>
-                    <a href="http://Google.com">http://Google.com</a>
-                    <span type="button" class="badge badge-pill badge-secondary">Copy Link</span><br>
-                    <hr>
-                    <p>Share To Public Anyone can view</p>
-                    <span type="button" class="badge badge-pill badge-secondary">Share Publicly</span><br>
-                    <hr>
-
-                    <input type="text" name="email&username" id="" placeholder="Enter Email Or Username">
+                    <form action="/changePassword" method="POST">
+                    	<div class="form-group">
+                                 
+                                 <input type="hidden" class="form-control" name="userid" id="userid" value="{{user.emailAddress}}">
+                           </div>
+                    	  <div class="form-group">
+                                 <label for="exampleInputEmail1">Old Password</label>
+                                 <input type="password" class="form-control" name="old_pass" id="exampleInputEmail1" placeholder="Old Password">
+                           </div>
+                           <div class="form-group">
+                                  <label for="exampleInputPassword1">New Password</label>
+                                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                  <label for="exampleInputPassword1">Confirm Password</label>
+                                  <input type="password" name="cpassword" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
 
                 </div>
-                <div class="modal-footer">
-
-                    {{!-- <button type="button" class="btn btn-primary">Done</button> --}}
-                    <a class="btn btn-primary" href="/shareAlbum" role="button">Share</a>
-                </div>
+               
 
 
             </div>
         </div>
     </div>
     <!--End Share Block Modal -->
-
-    <!-- Start of Upload Photos Modal-->
-    <div class="modal fade" id="uploadPhotosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Upload Photos</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="photosUploadForm" action="/uploadPhotos" enctype="multipart/form-data" method="POST">
-
-                        <input type="hidden" name="albumId" id="albumId" value="{{id}}">
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" multiple="multiple" id="photoBrowse" name="photos"
-                                    aria-describedby="inputGroupFileAddon04">
-                                <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-                            </div>
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" id="uploadButton">Upload</button>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-                {{!-- <div class="modal-footer">
-
-
-                    <a class="btn btn-primary" href="/uploadPhotos" role="button">Upload</a>
-                </div> --}}
-
-
-            </div>
-        </div>
-    </div>
-
-    <!-- End of Upload Photos Modal-->
-
     <div class="container-fluid" style="margin-top:5%">
-        <div class="row offset-md-9 justify-content-around">
-            <button type="button" id="deletePhotos" class="btn btn-outline-secondary" style="display:none">Delete</button>
-            <button type="button" id="selectPhotos" class="btn btn-outline-secondary" style="display:none">Select All</button>
-            <button type="button" id="editPhotos" class="btn btn-outline-secondary">Edit</button>
-        </div>
+
+
 
         <div class="row">
             <!--Start Side Navigation -->
             <div class="col-md-2">
                 <ul class="nav flex-column ">
+                     <li class="nav-item">
+                        <p>Welcome {{user.fullName}}</p>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="/home">Home</a>
                     </li>
@@ -178,44 +159,46 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/getAlbum">Albums</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link " id="uploadPhotos" href="#" data-toggle="modal" data-target="#uploadPhotosModal">Upload
-                            Photos</a>
-                    </li>
+                    {{!-- <li class="nav-item">
+                        <a class="nav-link " href="#">Delete</a>
+                    </li> --}}
                 </ul>
             </div>
             <!-- End of Side Navigation -->
 
-            <!--Start of Images Thumnails -->
-            <div class="col-md-9">
+           
+    
+        
+        <div class="col-md-9 offset-1">
+					<div class="pull-left">
+        
+        <h2>User Information</h2>
+        
+                                        
+      <hr><br>	
+      <label style="font-weight:bold;">Full Name   :- </label>
+      <span>{{user.fullName}}</span><br>
+      <label style="font-weight:bold;">Email ID  :- </label>
+      <span> {{user.emailAddress}}</span>
+             </div>
+             <br><hr>
+             <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary">CHANGE PASSWORD</button>
 
-                <div class="tz-gallery">
-                    <form id="deletePhotoForm" action="/deletePhotos" method="POST">
-                        <div class="row">
 
-
-                            {{#each photosList}}
-                            <figure class="col-md-4 align-checkbox" style="margin-bottom: 0px;">
-                                <a class="lightbox" href="{{path}}" data-size="1600x1067">
-                                    <img alt="picture" src="{{path}}" class="img-fluid">
-                                </a>
-                                <input type="hidden" class="form-check-input" id="exampleCheck1" name="path" value="{{path}}">
-                            </figure>
-
-                            {{/each}}
-
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!--End of Images Thumnails -->
+				</div>
+				
         </div>
+
+        
+
+      
+
 
 
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
@@ -223,9 +206,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js"></script>
     <script src="/js/baguetteBoxScript.js"></script>
-    <script src="js/albumphotopage/uploadImage.js"></script>
-    <script src="js/albumphotopage/deletePhotos.js"></script>
-
 </body>
 
 </html>
+		

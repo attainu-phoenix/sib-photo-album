@@ -7,7 +7,7 @@ var login = function(request, response) {
 
     DB = request.app.locals.DB;
     var userDetails = {
-        email: request.body.email,
+        emailAddress: request.body.email,
         password: request.body.password
     };
     DB.collection("users").findOne(userDetails,function(error,user){
