@@ -61,6 +61,8 @@ app.get("/profile",profile.viewprofile);
 
 app.post("/changePassword",profile.changePassword);
 
+app.get("/changePassword",profile.onPasswordChangeSuccess);
+
 app.get("/logout",logout.logout);
 
 app.get("/albums",createalbumpage.createAlbum);
