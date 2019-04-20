@@ -34,7 +34,7 @@
 
 .tz-gallery .lightbox img {
     width: 100%;
-    margin-bottom: 0px;
+    margin-bottom: 30px;
     transition: 0.2s ease-in-out;
     box-shadow: 0 2px 3px rgba(0,0,0,0.2);
 }
@@ -54,6 +54,11 @@
 }
 .align-checkbox input{
     margin-left: 1px;
+    margin-top: -55px; 
+    position: absolute;
+    width: 25px; 
+    height: 25px;
+    z-index: 1;
 }
 
 

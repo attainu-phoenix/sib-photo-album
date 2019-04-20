@@ -1,5 +1,4 @@
 'use strict'
-
 $(document).ready(function (e) {
     $('#photosUploadForm').on('submit', (function (e) {
         e.preventDefault();

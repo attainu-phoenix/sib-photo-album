@@ -11,7 +11,7 @@ var shareAlbum = require("./routes/sharealbumroute")
 var albumPhotos = require("./routes/albumPhotosRoute")
 var uploadPhotos = require("./routes/uploadPhotos.js");
 var profile = require("./routes/profile.js");
-
+var deleteAlbumPhotos = require("./routes/deleteAlbumPhotos");
 var session = require("express-session");
 
 // Initializing express app 
@@ -79,7 +79,6 @@ app.post("/uploadPhotos",uploadPhotos.uploadPhotos);
 
 app.post("/createAlbum",albumPhotos.createAlbum);
 
-app.post("/deletePhotos",deletePhotos.deletePhotos);
-
+app.delete("/deleteAlbumsPhotos",deleteAlbumPhotos.deletePhotos);
 
 app.listen(3000);
