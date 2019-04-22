@@ -69,5 +69,6 @@ app.post("/uploadPhotos",uploadPhotos.uploadPhotos);
 
 app.post("/createAlbum",albumPhotos.createAlbum);
 
+app.get("/deleteAlbum",albumPhotos.deleteAlbum);
 
-app.listen(3000);
+app.listen(3000); 
