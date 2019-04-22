@@ -112,15 +112,16 @@ var getAlbums = function (request, response) {
 var deleteAlbum = function(request, response){
     //var confirmation = ("Are you sure to delete this Album?");
      DB = request.app.locals.DB;
-     var mongoId = request.params.mongoId; 
+     var mongoId = request.query.id; 
+     console.log(mongoId);
             
-     DB.collection("albums").findOne({_id: mongodb.ObjectID(mongoId) }, function(error, result){
+     DB.collection("albums").deleteOne({_id: mongodb.ObjectID(mongoId) }, function(error, result){
 
         if(error){
             console.log("error");
 
         } else {
-            response.send("data received")
+            response.redirect("/getAlbum")
         }
      });
         
