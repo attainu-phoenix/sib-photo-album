@@ -1,5 +1,6 @@
 'use strict'
 var mongodb = require('mongodb');
+var md5 = require('md5');
 var DB;
 
 
@@ -9,7 +10,7 @@ var signup = function(request, response) {
     var userDetails = {
         fullName: request.body.name,
         emailAddress: request.body.email,
-        password: request.body.password
+        password: md5(request.body.password)
     };
 
     DB.collection("users").insertOne(userDetails,function(error){
