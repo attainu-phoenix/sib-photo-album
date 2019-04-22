@@ -81,4 +81,6 @@ app.post("/createAlbum",albumPhotos.createAlbum);
 
 app.delete("/deleteAlbumsPhotos",deleteAlbumPhotos.deletePhotos);
 
-app.listen(3000);
+app.get("/deleteAlbum",albumPhotos.deleteAlbum);
+
+app.listen(3000); 
