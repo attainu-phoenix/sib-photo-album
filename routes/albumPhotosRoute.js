@@ -70,7 +70,7 @@ var createAlbum = function (request, response) {
         var albums = {};
 
         if (error) {
-            console.log("error occured while inserting data into the instructors collection");
+            console.log("error occured while inserting data into the collection");
             albums.albumAdded = false;
             response.render("create_album.hbs", albums);
         } else {
@@ -106,6 +106,26 @@ var getAlbums = function (request, response) {
         response.render("create_album.hbs", albums);
     })
 }
+
+var deleteAlbum = function(request, response){
+    //var confirmation = ("Are you sure to delete this Album?");
+     DB = request.app.locals.DB;
+     var mongoId = request.params.mongoId; 
+            
+     DB.collection("albums").findOne({_id: mongodb.ObjectID(mongoId) }, function(error, result){
+
+        if(error){
+            console.log("error");
+
+        } else {
+            response.send("data received")
+        }
+     });
+        
+    }
+
+
+exports.deleteAlbum = deleteAlbum;
 exports.getAlbums = getAlbums;
 exports.albumPhots = albumPhots;
 exports.createAlbum = createAlbum;
