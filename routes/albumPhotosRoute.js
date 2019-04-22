@@ -56,7 +56,7 @@ var createAlbum = function (request, response) {
     }
     console.log(albumName + " " + sharedPublicly + " " + dateString);
 
-    var emailAddress = "surinder12@gmail.com";
+    var emailAddress = request.session.user.emailAddress;
     var albumLink = "www.google.com";
     var album = {
         emailAddress: emailAddress,
