@@ -16,7 +16,7 @@ var albumPhots = function (request, response) {
     }
   
     DB = request.app.locals.DB;
-    console.log(albumId);
+   
     DB.collection("albums").find({ _id: mongodb.ObjectID(albumId) }).toArray(function(error,result){
         if(error){
             console.log("Error  :"+error);
@@ -83,7 +83,7 @@ var createAlbum = function (request, response) {
 
 var getAlbums = function (request, response) {
     // console.log("i am getting albums to show on card");
-    
+
    if(!request.session.user){
         response.send("UNAUTHORIZED");
     }
@@ -91,6 +91,7 @@ var getAlbums = function (request, response) {
     var albums = {};
     if (request.query.success) {
         albums.albumAdded = true;
+       
     }
     DB.collection("albums").find({}).toArray(function (error, result) {
         if (error) {

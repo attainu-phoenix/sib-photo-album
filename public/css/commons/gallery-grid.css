@@ -52,6 +52,14 @@
 .baguetteBox-button {
     background-color: transparent !important;
 }
+.align-checkbox input{
+    margin-left: 1px;
+    margin-top: -55px; 
+    position: absolute;
+    width: 25px; 
+    height: 25px;
+    z-index: 1;
+}
 
 
 @media(max-width: 768px) {

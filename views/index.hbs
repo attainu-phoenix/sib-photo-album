@@ -13,20 +13,15 @@
 </head>
 
 <body>
-    {{#if signupMessage}}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>{{signupMessage}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  {{/if}}
-    <header>
-        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+  
+
+<header>
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
             <a class="navbar-brand" href="#">LOGO HERE</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mr-2">
@@ -41,7 +36,44 @@
             </div>
         </nav>
     </header>
+                
+                {{#if message}}
+                {{#if message}}
+                 
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>You have sucessfully signed up</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                 {{/if}}
+                
+                {{/if}}
+                {{#if messageFailed}}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>SIGN UP FAILED ! Something Went Wrong</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    </div>
+               {{/if}}
+               <!-- For Login Errors -->
+                      {{#if isLogin}}
+                {{#if isLogin}}
+                
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>EMail or Password is wrong!</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    </div>
+                {{/if}}
+                {{/if}}
+            
     <main role="main">
+        
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -184,6 +216,7 @@
         <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
+              
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Login</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -194,6 +227,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-12">
+
                                     <form action="/login" method="POST">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Email address</label>
@@ -211,6 +245,7 @@
                     </div>
                 </div>
     </main>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
