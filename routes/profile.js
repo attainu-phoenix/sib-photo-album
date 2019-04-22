@@ -26,9 +26,9 @@ var changePassword = function(request,response){
 	var oldPassword = request.body.old_pass;
 	var password = request.body.password;
 
-	var updatedUser = request.session.user;
-	updatedUser.password = password;
-	console.log(updatedUser);
+	//var updatedUser = request.session.user;
+	//updatedUser.password = password;
+	//console.log(updatedUser);
 
 	if(oldPassword == request.session.user.password){
 		DB.collection("users").updateOne({"emailAddress" : request.session.user.emailAddress},
@@ -36,7 +36,7 @@ var changePassword = function(request,response){
 
 				console.log("Executed Update PAss");
 				//request.session.user = user;
-				request.session.user = updatedUser;
+				//request.session.user = updatedUser;
 		       response.redirect("/changePassword?Success=true");
 		        console.log(request.session.user.fullName);
 			});
@@ -52,7 +52,7 @@ var changePassword = function(request,response){
 var onPasswordChangeSuccess = function(request,response){
         //console.log("on login success execu");
     var data = {};
-    data = request.session.user;
+    data.user = request.session.user;
     if(request.query.Success == "true"){
         data.isUpdatePass = true ;
         
