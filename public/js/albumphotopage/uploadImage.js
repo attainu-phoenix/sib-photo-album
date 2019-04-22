@@ -1,5 +1,4 @@
 'use strict'
-
 $(document).ready(function (e) {
     $('#photosUploadForm').on('submit', (function (e) {
         e.preventDefault();
@@ -44,7 +43,7 @@ $(document).ready(function (e) {
     })
 
     $("#uploadButton").on("click", function () {
-        $("#progerss").show();
         $("#photosUploadForm").submit();
+        $("#progerss").show();
     });
 });

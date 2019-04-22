@@ -17,7 +17,7 @@ var albumPhots = function (request, response) {
     }
   
     DB = request.app.locals.DB;
-    console.log(albumId);
+   
     DB.collection("albums").find({ _id: mongodb.ObjectID(albumId) }).toArray(function(error,result){
         if(error){
             console.log("Error  :"+error);
