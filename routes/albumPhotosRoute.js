@@ -7,7 +7,8 @@ var albumPhots = function (request, response) {
    
 
    if(!request.session.user){
-        response.send("UNAUTHORIZED");
+        response.redirect("/");
+        return;
     }
   
     var albumId ;
@@ -36,7 +37,7 @@ var createAlbum = function (request, response) {
 
   
    if(!request.session.user){
-        response.send("UNAUTHORIZED");
+        response.redirect("/");
     }
     console.log("/createAlbum route executed..")
 
@@ -85,13 +86,13 @@ var getAlbums = function (request, response) {
     // console.log("i am getting albums to show on card");
 
    if(!request.session.user){
-        response.send("UNAUTHORIZED");
+        response.redirect("/");
     }
     DB = request.app.locals.DB;
     var albums = {};
     if (request.query.success) {
         albums.albumAdded = true;
-       
+
     }
     DB.collection("albums").find({}).toArray(function (error, result) {
         if (error) {

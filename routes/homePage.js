@@ -3,7 +3,8 @@
 var homePage = function(request,response){
 
 	if(!request.session.user){
-		response.send("UNAUTHORIZED");
+		response.redirect("/");
+		return;
 	}
 	var data = {
 		user:request.session.user
