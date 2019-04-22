@@ -1,5 +1,6 @@
 'use strict'
 var mongodb = require('mongodb');
+var md5 = require('md5');
 
 
 var DB;
@@ -23,8 +24,8 @@ var changePassword = function(request,response){
 		return;
 	}
 	DB = request.app.locals.DB;
-	var oldPassword = request.body.old_pass;
-	var password = request.body.password;
+	var oldPassword = md5(request.body.old_pass);
+	var password = md5(request.body.password);
 
 	//var updatedUser = request.session.user;
 	//updatedUser.password = password;

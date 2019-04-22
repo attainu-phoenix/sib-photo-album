@@ -1,5 +1,6 @@
 'use strict'
 var mongodb = require('mongodb');
+var md5 = require('md5');
 var DB;
 
 
@@ -8,7 +9,7 @@ var login = function(request, response) {
     DB = request.app.locals.DB;
     var userDetails = {
         emailAddress: request.body.email,
-        password: request.body.password
+        password: md5(request.body.password)
     };
     DB.collection("users").findOne(userDetails,function(error,user){
             var data = {};                                                            
