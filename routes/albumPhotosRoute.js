@@ -94,7 +94,10 @@ var getAlbums = function (request, response) {
         albums.albumAdded = true;
 
     }
-    DB.collection("albums").find({}).toArray(function (error, result) {
+    var details = {
+            emailAddress : request.session.user.emailAddress
+                   };
+    DB.collection("albums").find(details).toArray(function (error, result) {
         if (error) {
             console.log(error);
             // response.send("error");
