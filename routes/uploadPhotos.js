@@ -28,8 +28,9 @@ var upload = multer({ storage: storage }).array('photos', 3);
  */
 var uploadPhotos = function(request, response) {
 
-    if (!request.session.user) {
-        response.send("UNAUTHORIZED");
+   if(!request.session.user){
+        response.redirect("/");
+        return;
     }
     console.log("/uploadPhotos route executed ...")
     upload(request, response, function(error) {
