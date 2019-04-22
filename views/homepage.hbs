@@ -18,21 +18,21 @@
     <nav class="navbar  bg-light align-items-center">
         <div class="col-md-6">
             <h2>SIB</h2>
-            
+
         </div>
         <div class="col-md-2 offset-md-4">
             <ul class="nav">
 
-                
+
                 <li class="nav-item">
-                    <div class="round-circle" data-toggle="collapse" data-target="#collapseExample2">SY</div>
+                    <div class="round-circle" data-toggle="collapse" data-target="#collapseExample2">{{initialName}}</div>
                 </li>
             </ul>
         </div>
     </nav>
     <!--End of NavBar  -->
     <!-- Notification Block By default not visible  will be only when user click on notification link on navbar-->
-    
+
     <!-- End Notification Block -->
 
     <!-- Start Profile Block by default not visible will be visible only when click on profile link-->
@@ -40,8 +40,8 @@
         <div class="col-md-3 offset-md-9">
             <div class="card card-body">
                 <ul class="nav flex-column">
-                       
-                    
+
+
                     <li class="nav-item">
                         <a class="nav-link" href="/profile">Profile</a>
                     </li>
@@ -99,7 +99,7 @@
             <!--Start Side Navigation -->
             <div class="col-md-2">
                 <ul class="nav flex-column ">
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <p>Welcome {{user.fullName}}</p>
                     </li>
                     <li class="nav-item">
@@ -122,80 +122,17 @@
             <div class="col-md-9">
                 <div class="tz-gallery">
                     <div class="row">
-                      {{# each photolist}}
+                        {{# each photolist}}
                         <figure class="col-md-4">
-                            <a class="lightbox" href="{{path}}"
-                                data-size="1600x1067">
-                                <img alt="picture" src="{{path}}"
-                                    class="img-fluid">
+                            <a class="lightbox" href="{{path}}" data-size="1600x1067">
+                                <img alt="picture" src="{{path}}" class="img-fluid">
                             </a>
                         </figure>
                         {{/each}}
-                        {{!-- <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(131).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(131).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(123).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(123).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(118).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(118).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
-
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(128).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(128).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
-
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(132).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(132).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(133).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(133).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure>
-                        <figure class="col-md-4">
-                            <a class="lightbox" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(115).jpg"
-                                data-size="1600x1067">
-                                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(115).jpg"
-                                    class="img-fluid" />
-                            </a>
-                        </figure> --}}
-
-
-
                     </div>
                 </div>
             </div>
-             <!--End of Images Thumnails -->
+            <!--End of Images Thumnails -->
         </div>
 
 

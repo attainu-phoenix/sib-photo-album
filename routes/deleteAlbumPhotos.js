@@ -5,6 +5,10 @@ var fs = require('fs');
 var DB;
 
 var deletePhotos = function (request, response) {
+    if (!request.session.user) {
+        response.redirect("/");
+        return;
+    }
     console.log("/deletePhotos route executed ...")
     if (!request.body) return res.json("400");
     var photosToBeDeleted = request.body.photosToBeDeleted;

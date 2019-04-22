@@ -33,16 +33,16 @@
   {{/if}}
   <div class="container-fluid">
     <div class="row bg-light align-items-center">
-      <div class="col-md-6">
+      <div class="col-md-1">
         <h2>SIB</h2>
         <!-- <a class="navbar-brand" href="#">SIB</a> -->
         <!-- <img src="https://via.placeholder.com/100" alt="" srcset="" height="50px" width="80px"> -->
       </div>
-      <div class="col-md-2 offset-md-4">
+      <div class="col-md-2 offset-md-9">
         <ul class="nav">
           
           <li class="nav-item">
-            <div class="round-circle" data-toggle="collapse" data-target="#collapseExample2">SY</div>
+            <div class="round-circle" data-toggle="collapse" data-target="#collapseExample2">{{initialName}}</div>
           </li>
         </ul>
       </div>
@@ -91,13 +91,13 @@
             <div class="col-md-4">
               <p></p>
               <div class="card" style="width:16rem;">
-                <img src=" https://via.placeholder.com/150">
+                <img src="/img/photo-album.svg" style="padding:12px">
                 <div class="card-body">
 
                   <h5 class="card-title">{{albumName}}</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Total Photos {{_id}}</li>
+                  {{!-- <li class="list-group-item">Total Photos</li> --}}
                   <li class="list-group-item">{{dateCreated}}</li>
                 </ul>
                 <div class="card-body">

@@ -3,6 +3,14 @@ var mongodb = require('mongodb');
 
 
 var DB;
+
+var giveInitial = function (str) {
+    var firstLetter = str.charAt(0);
+    var indexOfSpace = str.indexOf(' ');
+    var secondLetter = str.charAt(indexOfSpace + 1);
+    return (firstLetter + secondLetter).toUpperCase()
+}
+
 var viewprofile = function(request,response){
 
 	if(!request.session.user){
@@ -10,7 +18,8 @@ var viewprofile = function(request,response){
 		return;
 	}
 	var data = {
-		user : request.session.user
+		user : request.session.user,
+		initialName:giveInitial(request.session.user.fullName)
 	};
 	
 	response.render("profile.hbs",data);
