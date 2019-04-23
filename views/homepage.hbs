@@ -8,6 +8,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
+            <link rel="stylesheet" href="css/introjs.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.css">
     <link rel="stylesheet" href="/css/commons/gallery-grid.css">
     <link rel="stylesheet" href="/css/commons/profile-icon.css">
@@ -17,15 +18,17 @@
     <!--Start of NavBar  -->
     <nav class="navbar  bg-light align-items-center">
         <div class="col-md-6">
-            <h2>SIB</h2>
+            <h2 data-step="1" data-intro="Welcome to SIB!">SIB</h2>
 
         </div>
         <div class="col-md-2 offset-md-4">
             <ul class="nav">
 
-
                 <li class="nav-item">
-                    <div class="round-circle" data-toggle="collapse" data-target="#collapseExample2">{{initialName}}</div>
+                    <button id="startButton" class="btn btn-outline-info">How it works</button>
+                </li>
+                <li class="nav-item">
+                    <div class="round-circle mx-3" data-toggle="collapse" data-target="#collapseExample2">{{initialName}}</div>
                 </li>
             </ul>
         </div>
@@ -109,7 +112,7 @@
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter">Share Album</a>
                     </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="/getAlbum">Albums</a>
+                        <a class="nav-link" href="/getAlbum" data-step="2" data-intro="Here you can go to albums" data-position='right'>Albums</a>
                     </li>
                     {{!-- <li class="nav-item">
                         <a class="nav-link " href="#">Delete</a>
@@ -147,6 +150,14 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js"></script>
     <script src="/js/baguetteBoxScript.js"></script>
+    <script type="text/javascript" src="js/intro.min.js"></script>
+    <script type="text/javascript">
+      document.getElementById('startButton').onclick = function() {
+        introJs().setOption('doneLabel', 'Next page').start().oncomplete(function() {
+          window.location.href = 'getAlbum?multipage=true';
+        });
+      };
+    </script>
 </body>
 
 </html>

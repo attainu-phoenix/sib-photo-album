@@ -10,6 +10,7 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="/css/commons/gallery-grid.css">
   <link rel="stylesheet" href="/css/createalbum/style.css">
+  <link rel="stylesheet" href="css/introjs.min.css">
 
 </head>
 
@@ -42,7 +43,7 @@
         <ul class="nav">
           
           <li class="nav-item">
-            <div class="round-circle" data-toggle="collapse" data-target="#collapseExample2">{{initialName}}</div>
+            <div class="round-circle"  data-toggle="collapse" data-target="#collapseExample2">{{initialName}}</div>
           </li>
         </ul>
       </div>
@@ -73,8 +74,8 @@
           <li class="nav-item">
             <a class="nav-link" href="/home">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#" data-toggle="modal" data-target="#myModal1">Create Album</a>
+          <li class="nav-item"  data-step="4" data-intro="Here you can create new albums and after creating you can uploads pictures.">
+            <a class="nav-link active" data-toggle="modal" data-target="#myModal1">Create Album</a>
           </li>
 
           
@@ -83,9 +84,9 @@
         </ul>
       </div>
       <div class="col-md-9">
-
-        <div class="tz-gallery">
-          <div class="row justify-content-start">
+      
+        <div class="tz-gallery"  >
+          <div class="row justify-content-start" >
             {{#if listOfAlbums}}
             {{#each listOfAlbums}}
             <div class="col-md-4">
@@ -235,5 +236,11 @@
   crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
   crossorigin="anonymous"></script>
+  <script src="js/intro.min.js"></script>
+  <script type="text/javascript">
+      if (RegExp('multipage', 'gi').test(window.location.search)) {
+        introJs().start();
+      }
+    </script>
 
 </html>
