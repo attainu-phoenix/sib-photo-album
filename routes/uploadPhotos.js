@@ -1,7 +1,8 @@
 'use strict'
 var multer = require('multer');
-var mongodb = require('mongodb')
-const crypto = require('crypto')
+var mongodb = require('mongodb');
+const crypto = require('crypto');
+var path = require('path');
 var DB;
 
 
@@ -18,7 +19,7 @@ var storage = multer.diskStorage({
     }
 });
 
-var upload = multer({ storage: storage }).array('photos', 5);
+
 
 /**
  * 
@@ -32,6 +33,18 @@ var uploadPhotos = function(request, response) {
         response.redirect("/");
         return;
     }
+
+    var upload = multer({ storage: storage, 
+                     fileFilter: function(req, file, callback) {
+    var ext = path.extname(file.originalname)
+    if (ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
+        response.json({ message: "Error" });
+            return;
+    }
+    callback(null, true)
+}
+
+                      }).array('photos', 5);
     // console.log("/uploadPhotos route executed ...")
     upload(request, response, function(error) {
         var albumId = request.body.albumId;
@@ -42,11 +55,7 @@ var uploadPhotos = function(request, response) {
 
             response.json({ message: "Error" });
             return;
-        } else if (error) {
-
-            response.json({ message: 'Error' });
-            return;
-        }
+        } 
         var uploadedPhotosPath = []
         for (var i = 0; i < request.files.length; i++) {
 
@@ -80,7 +89,7 @@ var uploadPhotos = function(request, response) {
                 uploadedPhotosPath: oldPhotoUploadedPath
             }
 
-            response.json(data);
+           return response.json(data);
         });
 
 
