@@ -33,7 +33,6 @@ app.use(express.static('public'));
 //Connecting to DB
 var DB;
 var DB_URL = process.env.DB_URL || "mongodb://localhost:27017/sib";
-console.log(DB_URL);
 var mongoClient = new mongoDb.MongoClient(DB_URL,{useNewUrlParser:true})
 mongoClient.connect(function(error){
     

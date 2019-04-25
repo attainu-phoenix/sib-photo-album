@@ -1,15 +1,19 @@
 'use strict'
+
 var multer = require('multer');
 var mongodb = require('mongodb');
 const crypto = require('crypto');
 var path = require('path');
 var DB;
+var cloudinary = require('cloudinary');
+var cloudinaryStorage = require('multer-storage-cloudinary');
 
 
-var storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'public/img/uploads')
-    },
+
+var storage = cloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: 'folder-name',
+  allowedFormats: ['jpg', 'png'],
     filename: (req, file, cb) => {
         // randomBytes function will generate a random name
         let customFileName = crypto.randomBytes(18).toString('hex')
@@ -56,11 +60,12 @@ var uploadPhotos = function (request, response) {
 
             response.json({ message: "Error" });
             return;
-        }
+        } 
+        console.log(request.files);
         var uploadedPhotosPath = []
         for (var i = 0; i < request.files.length; i++) {
 
-            uploadedPhotosPath.push("/img/uploads/" + request.files[i].filename)
+            uploadedPhotosPath.push(request.files[i].secure_url)
         }
 
         var oldPhotoUploadedPath = []
