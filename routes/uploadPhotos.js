@@ -27,26 +27,27 @@ var storage = multer.diskStorage({
  * @param {response} response 
  * 
  */
-var uploadPhotos = function(request, response) {
+var uploadPhotos = function (request, response) {
 
-   if(!request.session.user){
+    if (!request.session.user) {
         response.redirect("/");
         return;
     }
 
-    var upload = multer({ storage: storage, 
-                     fileFilter: function(req, file, callback) {
-    var ext = path.extname(file.originalname)
-    if (ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
-        response.json({ message: "Error" });
-            return;
-    }
-    callback(null, true)
-}
+    var upload = multer({
+        storage: storage,
+        fileFilter: function (req, file, callback) {
+            var ext = path.extname(file.originalname)
+            if (ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
+                response.json({ message: "Error" });
+                return;
+            }
+            callback(null, true)
+        }
 
-                      }).array('photos', 5);
+    }).array('photos', 5);
     // console.log("/uploadPhotos route executed ...")
-    upload(request, response, function(error) {
+    upload(request, response, function (error) {
         var albumId = request.body.albumId;
 
         DB = request.app.locals.DB;
@@ -55,7 +56,7 @@ var uploadPhotos = function(request, response) {
 
             response.json({ message: "Error" });
             return;
-        } 
+        }
         var uploadedPhotosPath = []
         for (var i = 0; i < request.files.length; i++) {
 
@@ -63,7 +64,7 @@ var uploadPhotos = function(request, response) {
         }
 
         var oldPhotoUploadedPath = []
-        DB.collection("albums").find({ _id: mongodb.ObjectID(albumId) }).toArray(function(error, result) {
+        DB.collection("albums").find({ _id: mongodb.ObjectID(albumId) }).toArray(function (error, result) {
 
             // Getting Old images array from database
 
@@ -77,7 +78,7 @@ var uploadPhotos = function(request, response) {
                 oldPhotoUploadedPath.push({ path: uploadedPhotosPath[i] });
             }
             DB.collection("albums").updateOne({ _id: mongodb.ObjectID(albumId) }, { $set: { images: oldPhotoUploadedPath } },
-                function(error, result) {
+                function (error, result) {
                     if (error) {
                         console.log(error)
                         return;
@@ -89,7 +90,7 @@ var uploadPhotos = function(request, response) {
                 uploadedPhotosPath: oldPhotoUploadedPath
             }
 
-           return response.json(data);
+            return response.json(data);
         });
 
 
