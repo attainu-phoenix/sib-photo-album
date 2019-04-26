@@ -23,19 +23,10 @@ var storage = cloudinaryStorage({
     }
 });
 
-
-
-/**
- * 
- * @param {request} request 
- * @param {response} response 
- * 
- */
 var uploadPhotos = function (request, response) {
 
     if (!request.session.user) {
-        response.redirect("/");
-        return;
+        response.send("UNAUTHORIZED");
     }
 
     var upload = multer({

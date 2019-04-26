@@ -2,7 +2,7 @@
 var createAlbum = function(request,response){
     console.log("/album route executed ...")
      if(!request.session.user){
-        response.redirect("/");
+        response.send("UNAUTHORIZED");
     }
     response.render("create_album.hbs")
 }

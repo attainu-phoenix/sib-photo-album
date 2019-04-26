@@ -1,45 +1,42 @@
 'use strict';
 var mongodb = require('mongodb');
-var fs = require('fs')
 
 
 var DB;
 var albumPhots = function (request, response) {
+   
 
-
-    if (!request.session.user) {
-        response.redirect("/");
-        return;
+   if(!request.session.user){
+        response.send("UNAUTHORIZED");
     }
-
-    var albumId;
-    if (request.query.id != null) {
+  
+    var albumId ;
+    if(request.query.id != null){
         albumId = request.query.id;
     }
-
+  
     DB = request.app.locals.DB;
-
-    DB.collection("albums").find({ _id: mongodb.ObjectID(albumId) }).toArray(function (error, result) {
-        if (error) {
-            console.log("Error  :" + error);
+    console.log(albumId);
+    DB.collection("albums").find({ _id: mongodb.ObjectID(albumId) }).toArray(function(error,result){
+        if(error){
+            console.log("Error  :"+error);
             return;
         }
-        var data = {
-            id: albumId,
-            photosList: result[0].images,
-            initialName: giveInitial(request.session.user.fullName)
+        var data={
+            id:albumId,
+            photosList:result[0].images
         }
-
-        response.render("albumphotopage.hbs", data);
+        
+        response.render("albumphotopage.hbs",data);
     })
-
+    
 }
 
 var createAlbum = function (request, response) {
 
-
-    if (!request.session.user) {
-        response.redirect("/");
+  
+   if(!request.session.user){
+        response.send("UNAUTHORIZED");
     }
     console.log("/createAlbum route executed..")
 
@@ -58,7 +55,7 @@ var createAlbum = function (request, response) {
     }
     console.log(albumName + " " + sharedPublicly + " " + dateString);
 
-    var emailAddress = request.session.user.emailAddress;
+    var emailAddress = "surinder12@gmail.com";
     var albumLink = "www.google.com";
     var album = {
         emailAddress: emailAddress,
@@ -73,7 +70,7 @@ var createAlbum = function (request, response) {
         var albums = {};
 
         if (error) {
-            console.log("error occured while inserting data into the collection");
+            console.log("error occured while inserting data into the instructors collection");
             albums.albumAdded = false;
             response.render("create_album.hbs", albums);
         } else {
@@ -86,27 +83,22 @@ var createAlbum = function (request, response) {
 
 var getAlbums = function (request, response) {
     // console.log("i am getting albums to show on card");
-
-    if (!request.session.user) {
-        response.redirect("/");
+    
+   if(!request.session.user){
+        response.send("UNAUTHORIZED");
     }
     DB = request.app.locals.DB;
     var albums = {};
     if (request.query.success) {
         albums.albumAdded = true;
-
     }
-    var details = {
-        emailAddress: request.session.user.emailAddress
-    };
-    DB.collection("albums").find(details).toArray(function (error, result) {
+    DB.collection("albums").find({}).toArray(function (error, result) {
         if (error) {
             console.log(error);
             // response.send("error");
             albums.albumAdded = false;
         } else {
             albums.listOfAlbums = result
-            albums.initialName = giveInitial(request.session.user.fullName)
 
         }
 
@@ -115,32 +107,19 @@ var getAlbums = function (request, response) {
     })
 }
 
-var deleteAlbum = function (request, response) {
-
-    DB = request.app.locals.DB;
-    var mongoId = request.query.id;
-    console.log(mongoId);
-
-    DB.collection("albums").deleteOne({ _id: mongodb.ObjectID(mongoId) }, function (error, result) {
-
-        if (error) {
+var deleteAlbum = function(request, response){
+    DB.request.app.locals.DB;
+    var albumId =request.params.mongodb;
+    DB.collection("albums").findOne({_id:mongodb.ObjectID("albumId")},function(error, data){
+        if(error){
             console.log("error");
-
         } else {
-            response.redirect("/getAlbum")
+            console.log(albumId);
         }
+        
     });
 
 }
-
-var giveInitial = function (str) {
-    var firstLetter = str.charAt(0);
-    var indexOfSpace = str.indexOf(' ');
-    var secondLetter = str.charAt(indexOfSpace + 1);
-    return (firstLetter + secondLetter).toUpperCase()
-}
-
-
 exports.deleteAlbum = deleteAlbum;
 exports.getAlbums = getAlbums;
 exports.albumPhots = albumPhots;
