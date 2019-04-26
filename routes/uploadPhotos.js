@@ -1,14 +1,19 @@
 'use strict'
+
 var multer = require('multer');
-var mongodb = require('mongodb')
-const crypto = require('crypto')
+var mongodb = require('mongodb');
+const crypto = require('crypto');
+var path = require('path');
 var DB;
+var cloudinary = require('cloudinary');
+var cloudinaryStorage = require('multer-storage-cloudinary');
 
 
-var storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'public/img/uploads')
-    },
+
+var storage = cloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: 'folder-name',
+  allowedFormats: ['jpg', 'png'],
     filename: (req, file, cb) => {
         // randomBytes function will generate a random name
         let customFileName = crypto.randomBytes(18).toString('hex')
@@ -18,7 +23,6 @@ var storage = multer.diskStorage({
     }
 });
 
-var upload = multer({ storage: storage }).array('photos', 3);
 
 /**
  * 
@@ -31,7 +35,19 @@ var uploadPhotos = function(request, response) {
     if (!request.session.user) {
         response.send("UNAUTHORIZED");
     }
-    console.log("/uploadPhotos route executed ...")
+
+    var upload = multer({ storage: storage, 
+                     fileFilter: function(req, file, callback) {
+    var ext = path.extname(file.originalname)
+    if (ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
+        response.json({ message: "Error" });
+            return;
+    }
+    callback(null, true)
+}
+
+                      }).array('photos', 5);
+    // console.log("/uploadPhotos route executed ...")
     upload(request, response, function(error) {
         var albumId = request.body.albumId;
 
@@ -41,15 +57,12 @@ var uploadPhotos = function(request, response) {
 
             response.json({ message: "Error" });
             return;
-        } else if (error) {
-
-            response.json({ message: 'Error' });
-            return;
-        }
+        } 
+        console.log(request.files);
         var uploadedPhotosPath = []
         for (var i = 0; i < request.files.length; i++) {
 
-            uploadedPhotosPath.push("/img/uploads/" + request.files[i].filename)
+            uploadedPhotosPath.push(request.files[i].secure_url)
         }
 
         var oldPhotoUploadedPath = []
@@ -79,7 +92,7 @@ var uploadPhotos = function(request, response) {
                 uploadedPhotosPath: oldPhotoUploadedPath
             }
 
-            response.json(data);
+           return response.json(data);
         });
 
 

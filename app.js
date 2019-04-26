@@ -32,7 +32,8 @@ app.use(flash());
 
 //Connecting to DB
 var DB;
-var mongoClient = new mongoDb.MongoClient("mongodb://localhost:27017/sib",{useNewUrlParser:true})
+var DB_URL = process.env.DB_URL || "mongodb://localhost:27017/sib";
+var mongoClient = new mongoDb.MongoClient(DB_URL,{useNewUrlParser:true})
 mongoClient.connect(function(error){
     assert.equal(null,error)
     if(error){
@@ -71,3 +72,4 @@ app.post("/createAlbum",albumPhotos.createAlbum);
 
 
 app.listen(3000);
+app.listen(process.env.PORT || 3000); 
