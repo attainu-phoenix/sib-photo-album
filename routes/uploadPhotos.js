@@ -11,9 +11,9 @@ var cloudinaryStorage = require('multer-storage-cloudinary');
 
 
 var storage = cloudinaryStorage({
-  cloudinary: cloudinary,
-  folder: 'folder-name',
-  allowedFormats: ['jpg', 'png'],
+    cloudinary: cloudinary,
+    folder: 'folder-name',
+    allowedFormats: ['jpg', 'png', 'jpeg'],
     filename: (req, file, cb) => {
         // randomBytes function will generate a random name
         let customFileName = crypto.randomBytes(18).toString('hex')
@@ -57,11 +57,12 @@ var uploadPhotos = function (request, response) {
         DB = request.app.locals.DB;
 
         if (error instanceof multer.MulterError) {
-
+            console.log("Error :" + error)
             response.json({ message: "Error" });
             return;
-        } 
-        console.log(request.files);
+        }
+        console.log("Request Files :" + request.files);
+        console.log("No of Files :" + request.files.length);
         var uploadedPhotosPath = []
         for (var i = 0; i < request.files.length; i++) {
 
@@ -94,7 +95,7 @@ var uploadPhotos = function (request, response) {
                 message: "Success",
                 uploadedPhotosPath: oldPhotoUploadedPath
             }
-
+            console.log(data);
             return response.json(data);
         });
 
