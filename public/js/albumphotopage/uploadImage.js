@@ -1,23 +1,11 @@
 'use strict'
+
 $(document).ready(function (e) {
     $('#photosUploadForm').on('submit', (function (e) {
         e.preventDefault();
         var formData = new FormData(this);
 
         $.ajax({
-            xhr: function () {
-                var xhr = new window.XMLHttpRequest();
-                xhr.upload.addEventListener('progress', function (e) {
-                    if (e.lengthComputable) {
-                        var percent = Math.round((e.loaded / e.total) * 100);
-                        console.log(percent)
-                        $('#progressbar').attr('aria-valuenow', percent).css('width', percent + '%').text(percent + '%');
-
-                    }
-                });
-
-                return xhr;
-            },
             type: 'POST',
             url: $(this).attr('action'),
             data: formData,
@@ -25,9 +13,8 @@ $(document).ready(function (e) {
             contentType: false,
             processData: false,
             success: function (data) {
-                console.log(data);
-                var albumId = $('#albumId').val()
-                window.location.replace("/albumPhotos?id=" + albumId);
+               //window.location.replace("/albumPhotos?success=true");
+               console.log(data);
             },
             error: function (data) {
                 console.log(data);
@@ -44,6 +31,5 @@ $(document).ready(function (e) {
 
     $("#uploadButton").on("click", function () {
         $("#photosUploadForm").submit();
-        $("#progerss").show();
     });
 });

@@ -18,7 +18,7 @@ var storage = multer.diskStorage({
     }
 });
 
-var upload = multer({ storage: storage }).array('photos', 5);
+var upload = multer({ storage: storage }).array('photos', 3);
 
 /**
  * 
@@ -28,11 +28,10 @@ var upload = multer({ storage: storage }).array('photos', 5);
  */
 var uploadPhotos = function(request, response) {
 
-   if(!request.session.user){
-        response.redirect("/");
-        return;
+    if (!request.session.user) {
+        response.send("UNAUTHORIZED");
     }
-    // console.log("/uploadPhotos route executed ...")
+    console.log("/uploadPhotos route executed ...")
     upload(request, response, function(error) {
         var albumId = request.body.albumId;
 
