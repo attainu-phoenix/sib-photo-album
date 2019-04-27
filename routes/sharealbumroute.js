@@ -1,8 +1,9 @@
 'use strict'
 var shareAlbum = function(request,response){
 	 if(!request.session.user){
-        response.send("UNAUTHORIZED");
-    }
+		response.redirect("/");
+		return;
+	}
     response.send("generate share album view");
 }
 
